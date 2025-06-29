@@ -81,10 +81,10 @@ uint8_t watch_sensor_status() {
     for (int i = 0; i < NUM_DIST_SENSOR - 1; i++) {
         if (distance_sensor_read(i) == GPIO_PIN_RESET) {
             // Seeing Bit -> Set
-            values |= (1 << (i - 1));
+            values |= (1 << i);
         } else if (distance_sensor_read(i) == GPIO_PIN_SET) {
             // Not Seeing Bit -> Reset
-            values &= ~(1 << (i - 1));
+            values &= ~(1 << i);
         }
     }
 
